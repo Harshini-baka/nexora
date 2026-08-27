@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nexora - Scam Risk Checker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="header">
+
+            <div>
+                <h1>NEXORA</h1>
+
+                <p
+                    id="subtitle"
+                    data-en="Scam & Phishing Risk Checker"
+                    data-ta="மோசடி மற்றும் ஃபிஷிங் ஆபத்து சரிபார்ப்பு"
+                >
+                    Scam & Phishing Risk Checker
+                </p>
+            </div>
+
+            <div class="language-selector">
+
+                <button
+                    id="englishBtn"
+                    class="language-btn active"
+                    onclick="setLanguage('en')"
+                >
+                    English
+                </button>
+
+                <button
+                    id="tamilBtn"
+                    class="language-btn"
+                    onclick="setLanguage('ta')"
+                >
+                    தமிழ்
+                </button>
+
+            </div>
+
+        </header>
+
+        <section class="input-section">
+
+            <h2
+                id="inputTitle"
+                data-en="Check a message or URL"
+                data-ta="செய்தி அல்லது URL-ஐ சரிபார்க்கவும்"
+            >
+                Check a message or URL
+            </h2>
+
+            <p
+                id="inputDescription"
+                data-en="Paste a suspicious message, SMS, or URL below."
+                data-ta="சந்தேகத்திற்கிடமான செய்தி, SMS அல்லது URL-ஐ கீழே உள்ளிடவும்."
+            >
+                Paste a suspicious message, SMS, or URL below.
+            </p>
+
+            <textarea
+                id="messageInput"
+                placeholder="Paste your message or URL here..."
+            ></textarea>
+
+            <button
+                id="analyzeBtn"
+                class="analyze-btn"
+                onclick="analyzeMessage()"
+            >
+                Analyze
+            </button>
+
+        </section>
+
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+            <p id="loadingText">
+                Analyzing...
+            </p>
+        </div>
+
+        <section
+            id="results"
+            class="results hidden"
+        >
+
+            <div
+                id="riskCard"
+                class="risk-card"
+            >
+
+                <p
+                    id="riskLabel"
+                    class="risk-label"
+                >
+                    RISK LEVEL
+                </p>
+
+                <h2
+                    id="riskLevel"
+                >
+                    HIGH RISK
+                </h2>
+
+                <p
+                    id="riskScore"
+                >
+                    Risk Score: 0
+                </p>
+
+            </div>
+
+            <div class="result-section">
+
+                <h3
+                    id="whyTitle"
+                    data-en="Why was this flagged?"
+                    data-ta="இது ஏன் எச்சரிக்கப்பட்டது?"
+                >
+                    Why was this flagged?
+                </h3>
+
+                <ul id="reasonsList"></ul>
+
+            </div>
+
+            <div
+                id="domainSection"
+                class="result-section hidden"
+            >
+
+                <h3
+                    id="domainTitle"
+                    data-en="Domain Verification"
+                    data-ta="டொமைன் சரிபார்ப்பு"
+                >
+                    Domain Verification
+                </h3>
+
+                <div id="domainResult"></div>
+
+            </div>
+
+            <div class="result-section safety-section">
+
+                <h3
+                    id="safetyTitle"
+                    data-en="Stay Safe"
+                    data-ta="பாதுகாப்பாக இருங்கள்"
+                >
+                    Stay Safe
+                </h3>
+
+                <ul id="actionsList"></ul>
+
+            </div>
+
+            <button
+                id="resetBtn"
+                class="reset-btn"
+                onclick="resetAnalysis()"
+                data-en="Check Another"
+                data-ta="மற்றொன்றை சரிபார்க்கவும்"
+            >
+                Check Another
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
