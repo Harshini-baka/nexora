@@ -24,7 +24,10 @@ def analyze(request: AnalyzeRequest):
     message_analysis = analyze_message(request.text)
     url_analysis = analyze_urls(request.text)
 
-    risk_analysis = calculate_risk(message_analysis)
+    risk_analysis = calculate_risk(
+    message_analysis,
+    url_analysis
+)
 
     return {
         "input": request.text,
